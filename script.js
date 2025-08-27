@@ -73,7 +73,8 @@ class pendulumClass {
         let currentTime = performance.now();
         let dt = (currentTime-this.previousTime)/1000;
         this.previousTime = currentTime;
-        return dt
+        console.log(dt);
+        return Math.min(dt, 0.05)
     }
 }
 
@@ -118,7 +119,8 @@ canvas.addEventListener("touchstart", (e)=>{
     if (pendulum.isMouseOver(touch.clientX, touch.clientY)){
         dragging=true;
     }
-})
+    e.preventDefault();
+, {passive:false}})
 canvas.addEventListener("touchmove", (e)=>{
     let touch = e.touches[0]
     if(dragging){
