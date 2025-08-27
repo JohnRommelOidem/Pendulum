@@ -20,7 +20,6 @@ class pendulumClass {
         this.angle = angle;
         this.radius = radius;
         this.updatePosition();
-        console.log(this.x, this.y);
         this.velocity = 0;
         this.previousTime = performance.now();
     }
@@ -73,7 +72,6 @@ class pendulumClass {
         let currentTime = performance.now();
         let dt = (currentTime-this.previousTime)/1000;
         this.previousTime = currentTime;
-        console.log(dt);
         return Math.min(dt, 0.05)
     }
 }
@@ -120,7 +118,7 @@ canvas.addEventListener("touchstart", (e)=>{
         dragging=true;
     }
     e.preventDefault();
-, {passive:false}})
+}, {passive:false})
 canvas.addEventListener("touchmove", (e)=>{
     let touch = e.touches[0]
     if(dragging){
@@ -136,3 +134,8 @@ canvas.addEventListener("touchcancel", ()=>{
     dragging=false;
     pendulum.previousTime = performance.now();
 })
+document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+        previousTime = null;
+    }
+});
