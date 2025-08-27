@@ -18,7 +18,7 @@ class pendulumClass {
         this.max_length = Math.min(canvas.height/2,canvas.width/2)-radius-stroke_width
         this.length = Math.min(length, this.max_length);
         this.angle = angle;
-        this.radius = radius;
+        this.radius = Math.max(radius, this.length*0.1);
         this.updatePosition();
         this.velocity = 0;
         this.previousTime = performance.now();
