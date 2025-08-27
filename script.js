@@ -15,7 +15,7 @@ let ctx = canvas.getContext("2d");
 
 class pendulumClass {
     constructor(length, angle, radius){
-        this.max_length = canvas.height/2-radius-stroke_width
+        this.max_length = Math.min(canvas.height/2,canvas.width/2)-radius-stroke_width
         this.length = Math.min(length, this.max_length);
         this.angle = angle;
         this.radius = radius;
