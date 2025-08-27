@@ -1,5 +1,5 @@
 const pi = Math.PI;
-const stroke_width = 40;
+const stroke_width = 20;
 const g = 9800;
 const damp = 0.3;
 let canvas = document.getElementById("canvas");
@@ -35,7 +35,7 @@ class pendulumClass {
         ctx.strokeStyle = "white";
         ctx.lineWidth = stroke_width*0.75
         ctx.fillStyle = "lightblue";
-        ctx.arc(canvas.width/2, canvas.height/2, 15, 0, 2*pi);
+        ctx.arc(canvas.width/2, canvas.height/2, stroke_width*0.75/2, 0, 2*pi);
         ctx.moveTo(canvas.width/2, canvas.height/2);
         ctx.lineTo(this.x, this.y);
         ctx.stroke();
