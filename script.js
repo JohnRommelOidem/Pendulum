@@ -122,13 +122,8 @@ canvas.addEventListener("touchstart", (e)=>{
 })
 canvas.addEventListener("touchmove", (e)=>{
     let touch = e.touches[0]
-    if (pendulum.isMouseOver(touch.clientX, touch.clientY)){
-        canvas.style.cursor = "pointer"
-    } else {
-        canvas.style.cursor = "default"
-    }
     if(dragging){
-        pendulum.setPositionByMouse(e.clientX, e.clientY);
+        pendulum.setPositionByMouse(touch.clientX, touch.clientY);
     }
 })
 canvas.addEventListener("touchend", () => {
