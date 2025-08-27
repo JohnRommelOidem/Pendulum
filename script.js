@@ -117,7 +117,6 @@ canvas.addEventListener("touchstart", (e)=>{
     let touch = e.touches[0]
     if (pendulum.isMouseOver(touch.clientX, touch.clientY)){
         dragging=true;
-        canvas.style.cursor = "grabbing";
     }
 })
 canvas.addEventListener("touchmove", (e)=>{
@@ -125,7 +124,8 @@ canvas.addEventListener("touchmove", (e)=>{
     if(dragging){
         pendulum.setPositionByMouse(touch.clientX, touch.clientY);
     }
-})
+    e.preventDefault();
+}, {passive:false})
 canvas.addEventListener("touchend", () => {
     dragging = false;
     pendulum.previousTime = performance.now();
